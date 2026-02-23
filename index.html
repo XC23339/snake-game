@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>贪吃蛇练手项目</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>🐍 贪吃蛇</h1>
+
+    <section class="panel">
+      <div class="stats">
+        <div class="stat"><span>状态</span><strong id="status">未开始</strong></div>
+        <div class="stat"><span>得分</span><strong id="score">0</strong></div>
+        <div class="stat"><span>时间</span><strong id="time">00:00</strong></div>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">开始游戏</button>
+        <button id="pauseBtn" disabled>暂停</button>
+        <button id="restartBtn" disabled>重新开始</button>
+
+        <label class="difficulty-wrap" for="difficultySelect">
+          难度
+          <select id="difficultySelect">
+            <option value="easy">简单</option>
+            <option value="normal" selected>普通</option>
+            <option value="hard">困难（含障碍物）</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="hint">方向键/WASD 控制移动，P 键可暂停/继续；困难模式会生成障碍物。</p>
+    </section>
+
+    <section class="game-area">
+      <canvas id="game" width="480" height="480" aria-label="贪吃蛇游戏画布"></canvas>
+      <div id="overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">游戏结束</h2>
+          <p id="overlayText"></p>
+          <button id="overlayRestartBtn">再来一局</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="leaderboard">
+      <h2>排行榜（本地）</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>得分</th>
+            <th>用时</th>
+            <th>时间戳</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
